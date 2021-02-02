@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  WeatherInfo
 //
-//  Created by macexpert on 01/02/21.
+//  Created by Harpreet on 01/02/21.
 //
 
 import UIKit
