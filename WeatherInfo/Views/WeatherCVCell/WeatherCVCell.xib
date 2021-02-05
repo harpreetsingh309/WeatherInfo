@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WeatherCVCell" customModule="WeatherInfo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R6e-pa-2Da">
+                    <rect key="frame" x="0.0" y="59" width="320" height="1"/>
+                    <color key="backgroundColor" name="tempColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="OJH-Xq-sic"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="12"/>
+                    <color key="textColor" name="tempColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yrt-fs-Ngm">
+                    <rect key="frame" x="5" y="5" width="310" height="50"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Melbourne" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="038-Ap-KMQ">
+                            <rect key="frame" x="14" y="6" width="95" height="24"/>
+                            <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="20"/>
+                            <color key="textColor" name="tempColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today melbourne is somewhat cloudy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mG6-YF-Uqz">
+                            <rect key="frame" x="14" y="30" width="183.5" height="14"/>
+                            <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="12"/>
+                            <color key="textColor" name="tempColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5°C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mxb-Wp-ZDs">
+                            <rect key="frame" x="252.5" y="0.0" width="49.5" height="50"/>
+                            <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="30"/>
+                            <color key="textColor" name="tempColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="mG6-YF-Uqz" firstAttribute="leading" secondItem="yrt-fs-Ngm" secondAttribute="leading" constant="14" id="2a6-hL-kOl"/>
+                        <constraint firstItem="mG6-YF-Uqz" firstAttribute="top" secondItem="038-Ap-KMQ" secondAttribute="bottom" id="60N-fh-IPx"/>
+                        <constraint firstAttribute="trailing" secondItem="Mxb-Wp-ZDs" secondAttribute="trailing" constant="8" id="IHz-n3-EyL"/>
+                        <constraint firstItem="038-Ap-KMQ" firstAttribute="top" secondItem="yrt-fs-Ngm" secondAttribute="top" constant="6" id="TYP-9E-hTz"/>
+                        <constraint firstItem="038-Ap-KMQ" firstAttribute="leading" secondItem="yrt-fs-Ngm" secondAttribute="leading" constant="14" id="dMi-Qc-CEu"/>
+                        <constraint firstItem="Mxb-Wp-ZDs" firstAttribute="top" secondItem="yrt-fs-Ngm" secondAttribute="top" id="eHB-Xc-vj3"/>
+                        <constraint firstAttribute="bottom" secondItem="Mxb-Wp-ZDs" secondAttribute="bottom" id="kKA-hv-79U"/>
+                        <constraint firstAttribute="bottom" secondItem="mG6-YF-Uqz" secondAttribute="bottom" constant="6" id="lop-Ae-13N"/>
+                        <constraint firstItem="Mxb-Wp-ZDs" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mG6-YF-Uqz" secondAttribute="trailing" constant="5" id="v7o-SB-xza"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="yrt-fs-Ngm" secondAttribute="trailing" constant="5" id="HCF-dG-S9B"/>
+                <constraint firstItem="yrt-fs-Ngm" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="5" id="TUG-j3-SOv"/>
+                <constraint firstItem="yrt-fs-Ngm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="cz8-Uc-rfq"/>
+                <constraint firstAttribute="trailing" secondItem="R6e-pa-2Da" secondAttribute="trailing" id="f5G-db-9Cz"/>
+                <constraint firstItem="R6e-pa-2Da" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="xEa-cZ-iWf"/>
+                <constraint firstItem="R6e-pa-2Da" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="yYf-q8-TNg"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="lblCity" destination="038-Ap-KMQ" id="nwn-il-mw2"/>
+                <outlet property="lblDescription" destination="mG6-YF-Uqz" id="SRF-j0-oMw"/>
+                <outlet property="lblTemp" destination="Mxb-Wp-ZDs" id="Bfy-Ev-EHp"/>
+            </connections>
+            <point key="canvasLocation" x="40.579710144927539" y="-346.20535714285711"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="tempColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

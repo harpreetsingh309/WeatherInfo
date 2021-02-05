@@ -20,7 +20,6 @@ class WeatherWidgetVC: UIViewController {
     private func setupUI() {
         let nib = UINib(nibName: cellID, bundle: nil)
         weatherTableView.register(nib, forCellReuseIdentifier: cellID)
-        weatherTableView.backgroundColor = .clear
         let header = UINib(nibName: "WeatherHeaderView", bundle: nil)
         weatherTableView.sectionHeaderHeight = self.view.frame.height/2
         weatherTableView.register(header, forHeaderFooterViewReuseIdentifier: "WeatherHeaderView")
