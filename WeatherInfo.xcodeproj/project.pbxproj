@@ -27,7 +27,6 @@
 		F3B6AE3825C7DBEB00043DD6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3B6AE3625C7DBEB00043DD6 /* LaunchScreen.storyboard */; };
 		F3B6AE4925C7DC3B00043DD6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B6AE4325C7DC3A00043DD6 /* Constants.swift */; };
 		F3B6AE4A25C7DC3B00043DD6 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B6AE4425C7DC3A00043DD6 /* UIViewController.swift */; };
-		F3B6AE4C25C7DC3B00043DD6 /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B6AE4625C7DC3A00043DD6 /* UIStoryboard.swift */; };
 		F3B6AE4D25C7DC3B00043DD6 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B6AE4725C7DC3A00043DD6 /* UIApplication.swift */; };
 		F3B6AE4E25C7DC3B00043DD6 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B6AE4825C7DC3A00043DD6 /* Alert.swift */; };
 /* End PBXBuildFile section */
@@ -55,7 +54,6 @@
 		F3B6AE3925C7DBEB00043DD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3B6AE4325C7DC3A00043DD6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F3B6AE4425C7DC3A00043DD6 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
-		F3B6AE4625C7DC3A00043DD6 /* UIStoryboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
 		F3B6AE4725C7DC3A00043DD6 /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		F3B6AE4825C7DC3A00043DD6 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -167,7 +165,6 @@
 				F3B6AE4825C7DC3A00043DD6 /* Alert.swift */,
 				F3B6AE4325C7DC3A00043DD6 /* Constants.swift */,
 				F3B6AE4725C7DC3A00043DD6 /* UIApplication.swift */,
-				F3B6AE4625C7DC3A00043DD6 /* UIStoryboard.swift */,
 				F3B6AE4425C7DC3A00043DD6 /* UIViewController.swift */,
 			);
 			path = Utilities;
@@ -262,7 +259,6 @@
 				F31270FE25C91DE30001DCE2 /* WeatherHeaderView.swift in Sources */,
 				F31270E425C919EE0001DCE2 /* WeatherViewModel.swift in Sources */,
 				F31270FA25C91D530001DCE2 /* WeatherWidgetVC.swift in Sources */,
-				F3B6AE4C25C7DC3B00043DD6 /* UIStoryboard.swift in Sources */,
 				F3B6AE4D25C7DC3B00043DD6 /* UIApplication.swift in Sources */,
 				F3B6AE2C25C7DBEA00043DD6 /* AppDelegate.swift in Sources */,
 				F31270F125C91A490001DCE2 /* WeatherManager.swift in Sources */,

@@ -14,6 +14,7 @@ class WeatherListVC: UIViewController {
     private let headerId = "WeatherCVHeaderView"
     private let cellId = "WeatherCVCell"
     private var weatherManager = WeatherManager()
+    private var lastContentOffset: CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +32,7 @@ class WeatherListVC: UIViewController {
     // MARK:- Fetch Given cities weather condition
     private func loadLocationData() {
         weatherManager.delegate = self
-        weatherManager.fetchBulkWeather()
+        weatherManager.fetchBulkWeather(cityID: .sydney)
     }
 
     // MARK:- Alerts
@@ -80,10 +81,23 @@ extension WeatherListVC: UICollectionViewDataSource, UICollectionViewDelegateFlo
         return CGSize(width: width, height: width * 1.8)
     }
 
-    /// Cell For Row at
+    /// Cell For Row atr
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherCVCell", for: indexPath) as! WeatherCVCell
         cell.updateUI(model: arrayLocations)
         return cell
+    }
+}
+
+extension WeatherListVC: UICollectionViewDelegate {
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+
+        if lastContentOffset > scrollView.contentOffset.x && lastContentOffset < scrollView.contentSize.width {
+            print("move left")
+        } else if lastContentOffset < scrollView.contentOffset.x && scrollView.contentOffset.x > 0 {
+            print("move right")
+        }
+        lastContentOffset = scrollView.contentOffset.x
     }
 }

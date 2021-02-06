@@ -11,7 +11,7 @@ import Foundation
 struct Constants {
     static let weatherBaseURL = "https://api.openweathermap.org/data/2.5/weather?units=metric"
     static let bulkWeatherBaseURL = "https://api.openweathermap.org/data/2.5/group?units=metric&id=4163971,2147714,2174003"
-    static let cityWeatherBaseURL = "https://api.openweathermap.org/data/2.5/forecast?units=metric&id=2147714" // "https://api.openweathermap.org/data/2.5/group?units=metric&id=4163971,2147714,2174003"
+    static let cityWeatherBaseURL = "https://api.openweathermap.org/data/2.5/forecast?units=metric"
     static let degreeCelcius = "°C"
     static let strSearch = "Search"
     static let strDelete = "Delete"

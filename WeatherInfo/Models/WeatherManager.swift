@@ -48,9 +48,9 @@ class WeatherManager {
             performRequest(with: urlString)
     }
     
-    func fetchBulkWeather() {
+    func fetchBulkWeather(cityID: cities) {
         showActivityIndicator()
-        let urlString = "\(Constants.cityWeatherBaseURL)&appid=\(getAPIKey)"
+        let urlString = "\(Constants.cityWeatherBaseURL)&id=\(cityID.rawValue)&appid=\(getAPIKey)"
         performRequest(with: urlString, isBulk: true)
     }
     
