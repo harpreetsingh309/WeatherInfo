@@ -10,10 +10,16 @@ import Foundation
 
 struct WeatherListDataModel: Codable {
     let list: [WeatherDataModel]
+    let city: WeatherCityModel?
+}
+
+struct WeatherCityModel: Codable {
+    var name: String = ""
 }
 
 struct WeatherDataModel: Codable {
-    let name: String
+    var dt: Int = 0
+    var name: String = ""
     let main: MainTemperature
     let weather: [WeatherCondition]
 }

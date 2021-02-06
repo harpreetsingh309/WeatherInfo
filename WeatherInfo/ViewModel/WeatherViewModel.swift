@@ -10,6 +10,7 @@ import Foundation
 
 struct WeatherViewModel {
     let conditionId: Int
+    let dateTime: Int
     let cityName: String
     let temperature: Double
     let humidity: Double

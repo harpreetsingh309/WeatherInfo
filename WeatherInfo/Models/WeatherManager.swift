@@ -48,6 +48,12 @@ class WeatherManager {
             performRequest(with: urlString)
     }
     
+    func fetchBulkCitiesWeather() {
+        showActivityIndicator()
+        let urlString = "\(Constants.bulkWeatherBaseURL)&appid=\(getAPIKey)"
+        performRequest(with: urlString, isBulk: true)
+    }
+    
     func fetchBulkWeather() {
         showActivityIndicator()
         let urlString = "\(Constants.cityWeatherBaseURL)&appid=\(getAPIKey)"
@@ -88,12 +94,12 @@ class WeatherManager {
             let decodedData = try decoder.decode(WeatherDataModel.self, from: weatherData)
             let id = decodedData.weather[0].id
             let temp = decodedData.main.temp
-            let name = decodedData.name
+           // let name = decodedData.name
             let desc = decodedData.weather[0].description
             let min = decodedData.main.temp_min
             let max = decodedData.main.temp_max
             let humidity = decodedData.main.humidity
-            let weather = WeatherViewModel(conditionId: id, cityName: name, temperature: temp, humidity: humidity, temp_min: min, temp_max: max, desc: desc)
+            let weather = WeatherViewModel(conditionId: id, dateTime: 0, cityName: "name", temperature: temp, humidity: humidity, temp_min: min, temp_max: max, desc: desc)
             return weather
             
         } catch {
@@ -111,12 +117,19 @@ class WeatherManager {
             for model in decodedData.list {
                 let id = model.weather[0].id
                 let temp = model.main.temp
-                let name = model.name
+                var name = ""
+                if let city = decodedData.city {
+                    name = city.name
+                } else {
+                    name = model.name
+                }
+//                let name = decodedData.city?.name
                 let desc = model.weather[0].description
                 let min = model.main.temp_min
+                let dt = model.dt
                 let max = model.main.temp_max
                 let humidity = model.main.humidity
-                let weather = WeatherViewModel(conditionId: id, cityName: name, temperature: temp, humidity: humidity , temp_min: min, temp_max: max, desc: desc)
+                let weather = WeatherViewModel(conditionId: id, dateTime: dt, cityName: name, temperature: temp, humidity: humidity , temp_min: min, temp_max: max, desc: desc)
                 list.append(weather)
             }
             return list
@@ -131,7 +144,7 @@ class WeatherManager {
     // MARK:-  Activity Indicator
     private func showActivityIndicator() {
         activityView = UIActivityIndicatorView(style: .large)
-        activityView?.color = .black
+        activityView?.color = .white
         DispatchQueue.main.asyncAfter(deadline: .now()+0.2) {
             self.activityView!.center = UIApplication.scene.view.center
             UIApplication.scene.view.addSubview(self.activityView!)

@@ -8,10 +8,6 @@
 import UIKit
 
 class WeatherCVCell: UICollectionViewCell {
-    
-    @IBOutlet weak var lblCity: UILabel!
-    @IBOutlet weak var lblDescription: UILabel!
-    @IBOutlet weak var lblTemp: UILabel!
     lazy var widgetVC: WeatherWidgetVC = {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "WeatherWidgetVC") as! WeatherWidgetVC
@@ -21,5 +17,12 @@ class WeatherCVCell: UICollectionViewCell {
         super.awakeFromNib()
         widgetVC.view.frame = self.contentView.bounds
         self.contentView.addSubview(widgetVC.view)
+    }
+    
+    func updateUI(model: [WeatherViewModel]?) {
+        if let newModel = model {
+            widgetVC.modelWeather = newModel
+            widgetVC.weatherTableView.reloadData()
+        }
     }
 }

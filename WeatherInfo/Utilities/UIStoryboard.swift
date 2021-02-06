@@ -42,5 +42,5 @@ extension StoryboardType {
 
 enum StoryBoardMain: StoryboardType {
     static let storyboardName = "Main"
-//    static let detailVC = SceneType<WeatherMap.DetailVC>(storyboard: StoryBoardMain.self, identifier: "DetailVC")
+    static let detailVC = SceneType<WeatherInfo.WeatherDetailVC>(storyboard: StoryBoardMain.self, identifier: "WeatherDetailVC")
 }
