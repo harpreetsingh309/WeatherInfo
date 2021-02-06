@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -45,10 +44,10 @@
             </objects>
             <point key="canvasLocation" x="-146.37681159420291" y="61.607142857142854"/>
         </scene>
-        <!--Weather DetailVC-->
+        <!--Weather ListVC-->
         <scene sceneID="O38-dw-JcY">
             <objects>
-                <viewController storyboardIdentifier="WeatherDetailVC" id="U89-Da-aix" customClass="WeatherDetailVC" customModule="WeatherInfo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WeatherListVC" id="U89-Da-aix" customClass="WeatherListVC" customModule="WeatherInfo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Z9A-mS-Qvp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -73,8 +72,8 @@
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="U89-Da-aix" id="k2D-bc-QSx"/>
-                                    <outlet property="delegate" destination="U89-Da-aix" id="M0S-Bv-hQQ"/>
+                                    <outlet property="dataSource" destination="U89-Da-aix" id="Kd5-FG-QfQ"/>
+                                    <outlet property="delegate" destination="U89-Da-aix" id="H2E-47-ZfL"/>
                                 </connections>
                             </collectionView>
                         </subviews>
@@ -88,84 +87,12 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="weatherCollectionView" destination="VCK-Yh-ZJ8" id="uCc-Fd-V3T"/>
+                        <outlet property="weatherCollectionView" destination="VCK-Yh-ZJ8" id="bmI-Ld-bLZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ntR-6L-G0j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="485.50724637681162" y="61.607142857142854"/>
         </scene>
-        <!--Weather ListVC-->
-        <scene sceneID="qV0-SO-rX4">
-            <objects>
-                <viewController storyboardIdentifier="WeatherListVC" id="FVf-9d-Oqx" customClass="WeatherListVC" customModule="WeatherInfo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="TNK-aw-eVC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MfS-Rq-PlJ">
-                                <rect key="frame" x="0.0" y="44" width="414" height="50"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Locations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sqD-Ha-TnH">
-                                        <rect key="frame" x="164" y="12.5" width="86" height="25.5"/>
-                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="22"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEe-IR-pbL">
-                                        <rect key="frame" x="0.0" y="49" width="414" height="1"/>
-                                        <color key="backgroundColor" name="tempColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="1" id="ATQ-QL-hle"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="12"/>
-                                        <color key="textColor" name="tempColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="sqD-Ha-TnH" firstAttribute="centerY" secondItem="MfS-Rq-PlJ" secondAttribute="centerY" id="AHF-fi-xi3"/>
-                                    <constraint firstAttribute="height" constant="50" id="BOM-88-EZh"/>
-                                    <constraint firstItem="ZEe-IR-pbL" firstAttribute="leading" secondItem="MfS-Rq-PlJ" secondAttribute="leading" id="EZG-Bk-8Z9"/>
-                                    <constraint firstItem="sqD-Ha-TnH" firstAttribute="centerX" secondItem="MfS-Rq-PlJ" secondAttribute="centerX" id="HVf-dL-sek"/>
-                                    <constraint firstAttribute="bottom" secondItem="ZEe-IR-pbL" secondAttribute="bottom" id="NGp-e8-Usy"/>
-                                    <constraint firstAttribute="trailing" secondItem="ZEe-IR-pbL" secondAttribute="trailing" id="yan-Dt-XEC"/>
-                                </constraints>
-                            </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ypi-Lw-IBl">
-                                <rect key="frame" x="0.0" y="94" width="414" height="768"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="FVf-9d-Oqx" id="5mZ-Ur-HI9"/>
-                                    <outlet property="delegate" destination="FVf-9d-Oqx" id="s9j-Uk-Y1u"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="yQa-jq-o9Y"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="Ypi-Lw-IBl" firstAttribute="bottom" secondItem="yQa-jq-o9Y" secondAttribute="bottom" id="8Sj-hS-fgL"/>
-                            <constraint firstItem="MfS-Rq-PlJ" firstAttribute="top" secondItem="yQa-jq-o9Y" secondAttribute="top" id="8fX-sg-Pdr"/>
-                            <constraint firstItem="Ypi-Lw-IBl" firstAttribute="top" secondItem="MfS-Rq-PlJ" secondAttribute="bottom" id="DRo-nM-Ei9"/>
-                            <constraint firstItem="MfS-Rq-PlJ" firstAttribute="trailing" secondItem="yQa-jq-o9Y" secondAttribute="trailing" id="Mh2-uW-EIQ"/>
-                            <constraint firstItem="MfS-Rq-PlJ" firstAttribute="leading" secondItem="yQa-jq-o9Y" secondAttribute="leading" id="VyN-Et-DSm"/>
-                            <constraint firstItem="Ypi-Lw-IBl" firstAttribute="leading" secondItem="yQa-jq-o9Y" secondAttribute="leading" id="X3x-Ik-KWK"/>
-                            <constraint firstItem="Ypi-Lw-IBl" firstAttribute="trailing" secondItem="yQa-jq-o9Y" secondAttribute="trailing" id="yYE-9a-2Yr"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="weatherTableView" destination="Ypi-Lw-IBl" id="0AL-Rq-AuR"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Yc6-WL-j6m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-775" y="62"/>
-        </scene>
     </scenes>
-    <resources>
-        <namedColor name="tempColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-    </resources>
 </document>

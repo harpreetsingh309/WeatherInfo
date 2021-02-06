@@ -48,12 +48,6 @@ class WeatherManager {
             performRequest(with: urlString)
     }
     
-    func fetchBulkCitiesWeather() {
-        showActivityIndicator()
-        let urlString = "\(Constants.bulkWeatherBaseURL)&appid=\(getAPIKey)"
-        performRequest(with: urlString, isBulk: true)
-    }
-    
     func fetchBulkWeather() {
         showActivityIndicator()
         let urlString = "\(Constants.cityWeatherBaseURL)&appid=\(getAPIKey)"
@@ -117,13 +111,7 @@ class WeatherManager {
             for model in decodedData.list {
                 let id = model.weather[0].id
                 let temp = model.main.temp
-                var name = ""
-                if let city = decodedData.city {
-                    name = city.name
-                } else {
-                    name = model.name
-                }
-//                let name = decodedData.city?.name
+                let name = decodedData.city.name
                 let desc = model.weather[0].description
                 let min = model.main.temp_min
                 let dt = model.dt
