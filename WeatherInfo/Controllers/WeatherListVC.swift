@@ -10,7 +10,7 @@ import UIKit
 class WeatherListVC: UIViewController {
 
     @IBOutlet weak var weatherCollectionView: UICollectionView!
-    private var arrayLocations: [WeatherViewModel] = []
+    private var arrayLocations: [[WeatherViewModel]] = []
     private let headerId = "WeatherCVHeaderView"
     private let cellId = "WeatherCVCell"
     private var weatherManager = WeatherManager()
@@ -47,11 +47,11 @@ class WeatherListVC: UIViewController {
 extension WeatherListVC: WeatherManagerDelegate {
     
     func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherViewModel) {
-        arrayLocations.append(weather)
-        weatherCollectionView.reloadData()
+//        arrayLocations.append(weather)
+//        weatherCollectionView.reloadData()
     }
     
-    func didUpdateBulkWeather(_ weatherManager: WeatherManager, weather: [WeatherViewModel]) {
+    func didUpdateBulkWeather(_ weatherManager: WeatherManager, weather: [[WeatherViewModel]]) {
         arrayLocations = weather
         print(arrayLocations)
         DispatchQueue.main.async {
@@ -72,7 +72,7 @@ extension WeatherListVC: UICollectionViewDataSource, UICollectionViewDelegateFlo
     }
     ///Number of Rows in Sections in Collection View
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return arrayLocations.count
     }
 
     /// Collection Cell Size
@@ -84,7 +84,7 @@ extension WeatherListVC: UICollectionViewDataSource, UICollectionViewDelegateFlo
     /// Cell For Row atr
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherCVCell", for: indexPath) as! WeatherCVCell
-        cell.updateUI(model: arrayLocations)
+        cell.updateUI(model: arrayLocations[indexPath.row])
         return cell
     }
 }

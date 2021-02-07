@@ -11,7 +11,7 @@ import CoreLocation
 
 protocol WeatherManagerDelegate {
     func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherViewModel)
-    func didUpdateBulkWeather(_ weatherManager: WeatherManager, weather: [WeatherViewModel])
+    func didUpdateBulkWeather(_ weatherManager: WeatherManager, weather: [[WeatherViewModel]])
     func didFailWithError(error: String)
 }
 
@@ -34,6 +34,33 @@ class WeatherManager {
         }
     }
     
+    private func getJsonFileData(fileName: String) -> [WeatherViewModel]? {
+        if let path = Bundle.main.path(forResource: fileName, ofType: "json") {
+            let decoder = JSONDecoder()
+            do {
+                  let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                let decodedData = try decoder.decode(WeatherListDataModel.self, from: data)
+                var list: [WeatherViewModel] = []
+                for model in decodedData.list {
+                    let id = model.weather[0].id
+                    let temp = model.main.temp
+                    let name = decodedData.city.name
+                    let desc = model.weather[0].description
+                    let min = model.main.temp_min
+                    let dt = model.dt
+                    let max = model.main.temp_max
+                    let humidity = model.main.humidity
+                    let weather = WeatherViewModel(conditionId: id, dateTime: dt, cityName: name, temperature: temp, humidity: humidity , temp_min: min, temp_max: max, desc: desc)
+                    list.append(weather)
+                }
+                return list
+            } catch {
+                   // handle error
+                print("Unable to load data")
+              }
+        }
+        return nil
+    }
     // MARK:- Get weather data from ZipCode
     func fetchWeather(cityName: String) {
             showActivityIndicator()
@@ -103,11 +130,12 @@ class WeatherManager {
         }
     }
     
-    private func parseBulkJSON(_ weatherData: Data) -> [WeatherViewModel]? {
+    private func parseBulkJSON(_ weatherData: Data) -> [[WeatherViewModel]]? {
         let decoder = JSONDecoder()
         do {
             let decodedData = try decoder.decode(WeatherListDataModel.self, from: weatherData)
             var list: [WeatherViewModel] = []
+            var model = [[WeatherViewModel]]()
             for model in decodedData.list {
                 let id = model.weather[0].id
                 let temp = model.main.temp
@@ -120,7 +148,14 @@ class WeatherManager {
                 let weather = WeatherViewModel(conditionId: id, dateTime: dt, cityName: name, temperature: temp, humidity: humidity , temp_min: min, temp_max: max, desc: desc)
                 list.append(weather)
             }
-            return list
+            model.append(list)
+            if let hobart = getJsonFileData(fileName: "hobart") {
+                model.append(hobart)
+            }
+            if let perth = getJsonFileData(fileName: "perth") {
+                model.append(perth)
+            }
+            return model
             
         } catch {
             hideActivityIndicator()
