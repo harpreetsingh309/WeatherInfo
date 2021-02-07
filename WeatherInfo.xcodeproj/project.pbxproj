@@ -16,6 +16,14 @@
 		F31270FA25C91D530001DCE2 /* WeatherWidgetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31270F925C91D530001DCE2 /* WeatherWidgetVC.swift */; };
 		F31270FE25C91DE30001DCE2 /* WeatherHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31270FD25C91DE30001DCE2 /* WeatherHeaderView.swift */; };
 		F312710225C91DEE0001DCE2 /* WeatherHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F312710125C91DEE0001DCE2 /* WeatherHeaderView.xib */; };
+		F312713025C960910001DCE2 /* WeatherCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F312712F25C960910001DCE2 /* WeatherCVCell.swift */; };
+		F3ACA9DB25CF6B750070BD0A /* hobart.json in Resources */ = {isa = PBXBuildFile; fileRef = F3ACA9D925CF6B750070BD0A /* hobart.json */; };
+		F3ACA9DC25CF6B750070BD0A /* perth.json in Resources */ = {isa = PBXBuildFile; fileRef = F3ACA9DA25CF6B750070BD0A /* perth.json */; };
+		F3ACA9E025CF88930070BD0A /* nextDaysData.json in Resources */ = {isa = PBXBuildFile; fileRef = F3ACA9DF25CF88930070BD0A /* nextDaysData.json */; };
+		F3ACA9E325CFA0230070BD0A /* WeatherDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ACA9E225CFA0230070BD0A /* WeatherDetailVC.swift */; };
+		F3ACA9E625CFA3120070BD0A /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ACA9E525CFA3120070BD0A /* UIStoryboard.swift */; };
+		F3ACA9EA25CFB0350070BD0A /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ACA9E925CFB0350070BD0A /* Reachability.swift */; };
+		F3ACA9EF25CFBEB80070BD0A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F3ACA9EE25CFBEB80070BD0A /* README.md */; };
 		F3B6AE2C25C7DBEA00043DD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B6AE2B25C7DBEA00043DD6 /* AppDelegate.swift */; };
 		F3B6AE2E25C7DBEA00043DD6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B6AE2D25C7DBEA00043DD6 /* SceneDelegate.swift */; };
 		F3B6AE3325C7DBEA00043DD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3B6AE3125C7DBEA00043DD6 /* Main.storyboard */; };
@@ -23,7 +31,6 @@
 		F3B6AE3825C7DBEB00043DD6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3B6AE3625C7DBEB00043DD6 /* LaunchScreen.storyboard */; };
 		F3B6AE4925C7DC3B00043DD6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B6AE4325C7DC3A00043DD6 /* Constants.swift */; };
 		F3B6AE4A25C7DC3B00043DD6 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B6AE4425C7DC3A00043DD6 /* UIViewController.swift */; };
-		F3B6AE4C25C7DC3B00043DD6 /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B6AE4625C7DC3A00043DD6 /* UIStoryboard.swift */; };
 		F3B6AE4D25C7DC3B00043DD6 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B6AE4725C7DC3A00043DD6 /* UIApplication.swift */; };
 		F3B6AE4E25C7DC3B00043DD6 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B6AE4825C7DC3A00043DD6 /* Alert.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +45,14 @@
 		F31270F925C91D530001DCE2 /* WeatherWidgetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherWidgetVC.swift; sourceTree = "<group>"; };
 		F31270FD25C91DE30001DCE2 /* WeatherHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherHeaderView.swift; sourceTree = "<group>"; };
 		F312710125C91DEE0001DCE2 /* WeatherHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherHeaderView.xib; sourceTree = "<group>"; };
+		F312712F25C960910001DCE2 /* WeatherCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCVCell.swift; sourceTree = "<group>"; };
+		F3ACA9D925CF6B750070BD0A /* hobart.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hobart.json; sourceTree = "<group>"; };
+		F3ACA9DA25CF6B750070BD0A /* perth.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = perth.json; sourceTree = "<group>"; };
+		F3ACA9DF25CF88930070BD0A /* nextDaysData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nextDaysData.json; sourceTree = "<group>"; };
+		F3ACA9E225CFA0230070BD0A /* WeatherDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailVC.swift; sourceTree = "<group>"; };
+		F3ACA9E525CFA3120070BD0A /* UIStoryboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
+		F3ACA9E925CFB0350070BD0A /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		F3ACA9EE25CFBEB80070BD0A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F3B6AE2825C7DBEA00043DD6 /* WeatherInfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherInfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3B6AE2B25C7DBEA00043DD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3B6AE2D25C7DBEA00043DD6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,7 +62,6 @@
 		F3B6AE3925C7DBEB00043DD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3B6AE4325C7DC3A00043DD6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F3B6AE4425C7DC3A00043DD6 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
-		F3B6AE4625C7DC3A00043DD6 /* UIStoryboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
 		F3B6AE4725C7DC3A00043DD6 /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		F3B6AE4825C7DC3A00043DD6 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,6 +88,7 @@
 		F31270E625C919F30001DCE2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F312712E25C9607A0001DCE2 /* WeatherCVCell */,
 				F31270FC25C91DB60001DCE2 /* WeatherHeaderView */,
 				F31270E725C91A060001DCE2 /* WeatherTVC */,
 			);
@@ -107,9 +122,18 @@
 			path = WeatherHeaderView;
 			sourceTree = "<group>";
 		};
+		F312712E25C9607A0001DCE2 /* WeatherCVCell */ = {
+			isa = PBXGroup;
+			children = (
+				F312712F25C960910001DCE2 /* WeatherCVCell.swift */,
+			);
+			path = WeatherCVCell;
+			sourceTree = "<group>";
+		};
 		F3B6AE1F25C7DBEA00043DD6 = {
 			isa = PBXGroup;
 			children = (
+				F3ACA9EE25CFBEB80070BD0A /* README.md */,
 				F3B6AE2A25C7DBEA00043DD6 /* WeatherInfo */,
 				F3B6AE2925C7DBEA00043DD6 /* Products */,
 			);
@@ -144,11 +168,15 @@
 		F3B6AE4225C7DC2100043DD6 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				F3ACA9E925CFB0350070BD0A /* Reachability.swift */,
 				F3B6AE4825C7DC3A00043DD6 /* Alert.swift */,
 				F3B6AE4325C7DC3A00043DD6 /* Constants.swift */,
 				F3B6AE4725C7DC3A00043DD6 /* UIApplication.swift */,
-				F3B6AE4625C7DC3A00043DD6 /* UIStoryboard.swift */,
+				F3ACA9E525CFA3120070BD0A /* UIStoryboard.swift */,
 				F3B6AE4425C7DC3A00043DD6 /* UIViewController.swift */,
+				F3ACA9D925CF6B750070BD0A /* hobart.json */,
+				F3ACA9DA25CF6B750070BD0A /* perth.json */,
+				F3ACA9DF25CF88930070BD0A /* nextDaysData.json */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -158,6 +186,7 @@
 			children = (
 				F31270DE25C918650001DCE2 /* WeatherListVC.swift */,
 				F31270F925C91D530001DCE2 /* WeatherWidgetVC.swift */,
+				F3ACA9E225CFA0230070BD0A /* WeatherDetailVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -220,9 +249,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F31270EA25C91A190001DCE2 /* WeatherTableViewCell.xib in Resources */,
+				F3ACA9E025CF88930070BD0A /* nextDaysData.json in Resources */,
 				F3B6AE3825C7DBEB00043DD6 /* LaunchScreen.storyboard in Resources */,
 				F312710225C91DEE0001DCE2 /* WeatherHeaderView.xib in Resources */,
+				F3ACA9DB25CF6B750070BD0A /* hobart.json in Resources */,
 				F3B6AE3525C7DBEB00043DD6 /* Assets.xcassets in Resources */,
+				F3ACA9EF25CFBEB80070BD0A /* README.md in Resources */,
+				F3ACA9DC25CF6B750070BD0A /* perth.json in Resources */,
 				F3B6AE3325C7DBEA00043DD6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,12 +272,15 @@
 				F31270FE25C91DE30001DCE2 /* WeatherHeaderView.swift in Sources */,
 				F31270E425C919EE0001DCE2 /* WeatherViewModel.swift in Sources */,
 				F31270FA25C91D530001DCE2 /* WeatherWidgetVC.swift in Sources */,
-				F3B6AE4C25C7DC3B00043DD6 /* UIStoryboard.swift in Sources */,
 				F3B6AE4D25C7DC3B00043DD6 /* UIApplication.swift in Sources */,
+				F3ACA9EA25CFB0350070BD0A /* Reachability.swift in Sources */,
 				F3B6AE2C25C7DBEA00043DD6 /* AppDelegate.swift in Sources */,
 				F31270F125C91A490001DCE2 /* WeatherManager.swift in Sources */,
 				F3B6AE2E25C7DBEA00043DD6 /* SceneDelegate.swift in Sources */,
+				F312713025C960910001DCE2 /* WeatherCVCell.swift in Sources */,
 				F31270F025C91A490001DCE2 /* WeatherDataModel.swift in Sources */,
+				F3ACA9E625CFA3120070BD0A /* UIStoryboard.swift in Sources */,
+				F3ACA9E325CFA0230070BD0A /* WeatherDetailVC.swift in Sources */,
 				F3B6AE4A25C7DC3B00043DD6 /* UIViewController.swift in Sources */,
 				F3B6AE4E25C7DC3B00043DD6 /* Alert.swift in Sources */,
 				F3B6AE4925C7DC3B00043DD6 /* Constants.swift in Sources */,

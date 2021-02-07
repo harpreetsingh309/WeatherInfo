@@ -2,7 +2,7 @@
 //  UIStoryboard.swift
 //  WeatherMap
 //
-//  Created by Harpreet on 02/02/21.
+//  Created by Harpreet on 23/01/21.
 //  Copyright © 2020 Harpreet. All rights reserved.
 //
 
@@ -42,5 +42,5 @@ extension StoryboardType {
 
 enum StoryBoardMain: StoryboardType {
     static let storyboardName = "Main"
-//    static let detailVC = SceneType<WeatherMap.DetailVC>(storyboard: StoryBoardMain.self, identifier: "DetailVC")
+    static let detailVC = SceneType<WeatherInfo.WeatherDetailVC>(storyboard: StoryBoardMain.self, identifier: "WeatherDetailVC")
 }

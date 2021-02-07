@@ -12,16 +12,22 @@ class WeatherHeaderView: UITableViewHeaderFooterView {
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var minMaxLabel: UILabel!
+    var weather: WeatherViewModel?
 
-    override func awakeFromNib() {
-//        backgroundView?.backgroundColor = .red
+    func setUI() {
+        if let model = weather {
+            temperatureLabel.text = model.temperatureString
+            minMaxLabel.text = model.tempMinString + " / " + model.tempMaxString
+            conditionImageView.image = UIImage(systemName: model.conditionName)
+            cityLabel.text = model.cityName
+        }
     }
-    
-    override init(reuseIdentifier: String?) {
-        super.init(reuseIdentifier: reuseIdentifier)
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
+
+    @IBAction func actionAllDaysData(_ sender: UIButton) {
+        if let topVC = UIApplication.scene {
+            let vc = StoryBoardMain.detailVC.instantiate()
+            vc.headerString = cityLabel.text ?? ""
+            topVC.present(vc, animated: true, completion: nil)
+        }
     }
 }

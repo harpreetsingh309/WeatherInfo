@@ -10,6 +10,7 @@ import Foundation
 
 struct WeatherViewModel {
     let conditionId: Int
+    let dateTime: Int
     let cityName: String
     let temperature: Double
     let humidity: Double
@@ -52,8 +53,47 @@ struct WeatherViewModel {
         }
     }
     
+    var dateTimeString: String {
+        let epochTime = Double(dateTime)
+        let epochDate = Date(timeIntervalSince1970: epochTime)
+        let calendar = Calendar.current
+        let epochHour = calendar.component(.hour, from: epochDate)
+        let calender = Calendar(identifier: .gregorian)
+        let comps = calender.dateComponents([.weekday], from: epochDate)
+        let today = comps.weekday!
+        var dow = ""
+        switch today {
+        case 1: dow = "Sunday"
+        case 2: dow = "Monday"
+        case 3: dow = "Tuesday"
+        case 4: dow = "Wednesday"
+        case 5: dow = "Thursday"
+        case 6: dow = "Friday"
+        case 7: dow = "Saturday"
+        default: dow = ""
+        }
+        if epochHour > 12 {
+            return dow + " at " + String(epochHour-12) + " PM"
+        }
+        return dow + " at " + String(epochHour) + " AM"
+    }
+    
+    var dateString: String {
+        let epochTime = Double(dateTime)
+        let epochDate = Date(timeIntervalSince1970: epochTime)
+        let calendar = Calendar.current
+        let epochHour = calendar.component(.hour, from: epochDate)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd MMM YY"
+        let local = formatter.string(from: epochDate)
+        if epochHour > 12 {
+            return local + " at " + String(epochHour-12) + " PM"
+        }
+        return local + " at " + String(epochHour) + " AM"
+    }
 }
 
+// MARK:- Double to String
 extension Double {
     func toString() -> String {
         return String(format: "%.0f",self)

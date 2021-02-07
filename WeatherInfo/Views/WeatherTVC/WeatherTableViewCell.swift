@@ -10,16 +10,20 @@ import UIKit
 
 class WeatherTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var lblCity: UILabel!
-    @IBOutlet weak var lblDescription: UILabel!
-    @IBOutlet weak var lblTemp: UILabel!
+    @IBOutlet weak var dateTimeLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet weak var conditionImageView: UIImageView!
 
-    func updateCell(with model: AnyObject) {
+    func updateCell(with newModel: WeatherViewModel, isDetail: Bool = false) {
         selectionStyle = .none
-        if let newModel = model as? WeatherViewModel {
-            lblCity.text = newModel.cityName
-            lblDescription.text = newModel.desc
-            lblTemp.text = newModel.temperatureString + Constants.degreeCelcius
+        if isDetail {
+            dateTimeLabel.text = newModel.dateString
+        } else {
+            dateTimeLabel.text = newModel.dateTimeString
         }
+        descriptionLabel.text = newModel.desc.uppercased()
+        temperatureLabel.text = newModel.temperatureString + Constants.degreeCelcius
+        conditionImageView.image = UIImage(systemName: newModel.conditionName)
     }
 }
