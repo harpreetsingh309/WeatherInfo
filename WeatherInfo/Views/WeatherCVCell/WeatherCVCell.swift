@@ -14,13 +14,21 @@ class WeatherCVCell: UICollectionViewCell {
             let vc = storyboard.instantiateViewController(withIdentifier: "WeatherWidgetVC") as! WeatherWidgetVC
             return vc
         }()
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addSubview()
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func addSubview() {
         widgetVC.view.frame = self.contentView.bounds
         self.contentView.addSubview(widgetVC.view)
     }
-    
+
     func updateUI(model: [WeatherViewModel]?) {
         if let newModel = model {
             widgetVC.modelWeather = newModel

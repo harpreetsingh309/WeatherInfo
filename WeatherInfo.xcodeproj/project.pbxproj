@@ -17,7 +17,6 @@
 		F31270FE25C91DE30001DCE2 /* WeatherHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31270FD25C91DE30001DCE2 /* WeatherHeaderView.swift */; };
 		F312710225C91DEE0001DCE2 /* WeatherHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F312710125C91DEE0001DCE2 /* WeatherHeaderView.xib */; };
 		F312713025C960910001DCE2 /* WeatherCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F312712F25C960910001DCE2 /* WeatherCVCell.swift */; };
-		F312713425C960A10001DCE2 /* WeatherCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F312713325C960A10001DCE2 /* WeatherCVCell.xib */; };
 		F3ACA9DB25CF6B750070BD0A /* hobart.json in Resources */ = {isa = PBXBuildFile; fileRef = F3ACA9D925CF6B750070BD0A /* hobart.json */; };
 		F3ACA9DC25CF6B750070BD0A /* perth.json in Resources */ = {isa = PBXBuildFile; fileRef = F3ACA9DA25CF6B750070BD0A /* perth.json */; };
 		F3ACA9E025CF88930070BD0A /* nextDaysData.json in Resources */ = {isa = PBXBuildFile; fileRef = F3ACA9DF25CF88930070BD0A /* nextDaysData.json */; };
@@ -46,7 +45,6 @@
 		F31270FD25C91DE30001DCE2 /* WeatherHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherHeaderView.swift; sourceTree = "<group>"; };
 		F312710125C91DEE0001DCE2 /* WeatherHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherHeaderView.xib; sourceTree = "<group>"; };
 		F312712F25C960910001DCE2 /* WeatherCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCVCell.swift; sourceTree = "<group>"; };
-		F312713325C960A10001DCE2 /* WeatherCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherCVCell.xib; sourceTree = "<group>"; };
 		F3ACA9D925CF6B750070BD0A /* hobart.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hobart.json; sourceTree = "<group>"; };
 		F3ACA9DA25CF6B750070BD0A /* perth.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = perth.json; sourceTree = "<group>"; };
 		F3ACA9DF25CF88930070BD0A /* nextDaysData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nextDaysData.json; sourceTree = "<group>"; };
@@ -126,7 +124,6 @@
 			isa = PBXGroup;
 			children = (
 				F312712F25C960910001DCE2 /* WeatherCVCell.swift */,
-				F312713325C960A10001DCE2 /* WeatherCVCell.xib */,
 			);
 			path = WeatherCVCell;
 			sourceTree = "<group>";
@@ -253,7 +250,6 @@
 				F3B6AE3825C7DBEB00043DD6 /* LaunchScreen.storyboard in Resources */,
 				F312710225C91DEE0001DCE2 /* WeatherHeaderView.xib in Resources */,
 				F3ACA9DB25CF6B750070BD0A /* hobart.json in Resources */,
-				F312713425C960A10001DCE2 /* WeatherCVCell.xib in Resources */,
 				F3B6AE3525C7DBEB00043DD6 /* Assets.xcassets in Resources */,
 				F3ACA9DC25CF6B750070BD0A /* perth.json in Resources */,
 				F3B6AE3325C7DBEA00043DD6 /* Main.storyboard in Resources */,

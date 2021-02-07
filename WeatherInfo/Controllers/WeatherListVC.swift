@@ -25,10 +25,8 @@ class WeatherListVC: UIViewController {
     
     // MARK:- Register cell/nib
     private func setupUI() {
-        var nib = UINib(nibName: cellId, bundle: nil)
-        weatherCollectionView.register(nib, forCellWithReuseIdentifier: cellId)
-        weatherCollectionView.automaticallyAdjustsScrollIndicatorInsets = true
-        nib = UINib(nibName: headerId, bundle: nil)
+        let nib = UINib(nibName: headerId, bundle: nil)
+        weatherCollectionView.register(WeatherCVCell.self, forCellWithReuseIdentifier: cellId)
         weatherCollectionView.register(nib, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
     }
 
