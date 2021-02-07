@@ -14,19 +14,20 @@ class WeatherListVC: UIViewController {
     private let headerId = "WeatherCVHeaderView"
     private let cellId = "WeatherCVCell"
     private var weatherManager = WeatherManager()
-    private var lastContentOffset: CGFloat = 0
     
+    // MARK:- LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         loadLocationData()
     }
     
+    // MARK:- Register cell/nib
     func setupUI() {
-        let nib = UINib(nibName: cellId, bundle: nil)
+        var nib = UINib(nibName: cellId, bundle: nil)
         weatherCollectionView.register(nib, forCellWithReuseIdentifier: cellId)
-        let headerNib = UINib(nibName: headerId, bundle: nil)
-        weatherCollectionView.register(headerNib, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
+        nib = UINib(nibName: headerId, bundle: nil)
+        weatherCollectionView.register(nib, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
     }
 
     // MARK:- Fetch Given cities weather condition
@@ -46,14 +47,8 @@ class WeatherListVC: UIViewController {
 
 extension WeatherListVC: WeatherManagerDelegate {
     
-    func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherViewModel) {
-//        arrayLocations.append(weather)
-//        weatherCollectionView.reloadData()
-    }
-    
     func didUpdateBulkWeather(_ weatherManager: WeatherManager, weather: [[WeatherViewModel]]) {
         arrayLocations = weather
-        print(arrayLocations)
         DispatchQueue.main.async {
             self.weatherCollectionView.reloadData()
         }
@@ -81,23 +76,10 @@ extension WeatherListVC: UICollectionViewDataSource, UICollectionViewDelegateFlo
         return CGSize(width: width, height: width * 1.8)
     }
 
-    /// Cell For Row atr
+    /// Cell For Row at
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherCVCell", for: indexPath) as! WeatherCVCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! WeatherCVCell
         cell.updateUI(model: arrayLocations[indexPath.row])
         return cell
-    }
-}
-
-extension WeatherListVC: UICollectionViewDelegate {
-    
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-
-        if lastContentOffset > scrollView.contentOffset.x && lastContentOffset < scrollView.contentSize.width {
-            print("move left")
-        } else if lastContentOffset < scrollView.contentOffset.x && scrollView.contentOffset.x > 0 {
-            print("move right")
-        }
-        lastContentOffset = scrollView.contentOffset.x
     }
 }

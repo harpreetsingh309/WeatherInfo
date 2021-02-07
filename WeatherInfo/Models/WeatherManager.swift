@@ -10,7 +10,6 @@ import UIKit
 import CoreLocation
 
 protocol WeatherManagerDelegate {
-    func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherViewModel)
     func didUpdateBulkWeather(_ weatherManager: WeatherManager, weather: [[WeatherViewModel]])
     func didFailWithError(error: String)
 }
@@ -33,7 +32,8 @@ class WeatherManager {
             return value
         }
     }
-    
+
+    // MARK:- Get data from JSON file
     private func getJsonFileData(fileName: String) -> [WeatherViewModel]? {
         if let path = Bundle.main.path(forResource: fileName, ofType: "json") {
             let decoder = JSONDecoder()
@@ -61,28 +61,16 @@ class WeatherManager {
         }
         return nil
     }
-    // MARK:- Get weather data from ZipCode
-    func fetchWeather(cityName: String) {
-            showActivityIndicator()
-            let urlString = "\(Constants.weatherBaseURL)&q=\(cityName)&appid=\(getAPIKey)"
-            performRequest(with: urlString)
-    }
     
-    // MARK:-  Get weather data for particular location
-    func fetchWeather(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
-            showActivityIndicator()
-            let urlString = "\(Constants.weatherBaseURL)&lat=\(latitude)&lon=\(longitude)&appid=\(getAPIKey)"
-            performRequest(with: urlString)
-    }
-    
+    // MARK:- API call
     func fetchBulkWeather(cityID: cities) {
         showActivityIndicator()
         let urlString = "\(Constants.cityWeatherBaseURL)&id=\(cityID.rawValue)&appid=\(getAPIKey)"
-        performRequest(with: urlString, isBulk: true)
+        performRequest(with: urlString)
     }
     
     // MARK:- URLSession Task
-    private func performRequest(with urlString: String, isBulk: Bool = false) {
+    private func performRequest(with urlString: String) {
         if let url = URL(string: urlString) {
             let session = URLSession(configuration: .default)
             let task = session.dataTask(with: url) {[weak self] (data, response, error) in
@@ -92,41 +80,13 @@ class WeatherManager {
                     return
                 }
                 if let safeData = data {
-                    if isBulk {
-                        if let weather = self?.parseBulkJSON(safeData) {
-                            self?.hideActivityIndicator()
-                            self?.delegate?.didUpdateBulkWeather(self!, weather: weather)
-                        }
-                    } else {
-                        if let weather = self?.parseJSON(safeData) {
-                            self?.hideActivityIndicator()
-                            self?.delegate?.didUpdateWeather(self!, weather: weather)
-                        }
+                    if let weather = self?.parseBulkJSON(safeData) {
+                        self?.hideActivityIndicator()
+                        self?.delegate?.didUpdateBulkWeather(self!, weather: weather)
                     }
                 }
             }
             task.resume()
-        }
-    }
-    
-    private func parseJSON(_ weatherData: Data) -> WeatherViewModel? {
-        let decoder = JSONDecoder()
-        do {
-            let decodedData = try decoder.decode(WeatherDataModel.self, from: weatherData)
-            let id = decodedData.weather[0].id
-            let temp = decodedData.main.temp
-           // let name = decodedData.name
-            let desc = decodedData.weather[0].description
-            let min = decodedData.main.temp_min
-            let max = decodedData.main.temp_max
-            let humidity = decodedData.main.humidity
-            let weather = WeatherViewModel(conditionId: id, dateTime: 0, cityName: "name", temperature: temp, humidity: humidity, temp_min: min, temp_max: max, desc: desc)
-            return weather
-            
-        } catch {
-            hideActivityIndicator()
-            delegate?.didFailWithError(error: Errors.cantFindCity)
-            return nil
         }
     }
     

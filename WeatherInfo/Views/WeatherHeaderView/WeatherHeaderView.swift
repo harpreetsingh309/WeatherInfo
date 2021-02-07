@@ -13,10 +13,6 @@ class WeatherHeaderView: UITableViewHeaderFooterView {
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var minMaxLabel: UILabel!
     var weather: WeatherViewModel?
-    
-    override func awakeFromNib() {
-//        setUI()
-    }
 
     func setUI() {
         if let model = weather {
