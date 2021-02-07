@@ -77,6 +77,20 @@ struct WeatherViewModel {
         }
         return dow + " at " + String(epochHour) + " AM"
     }
+    
+    var dateString: String {
+        let epochTime = Double(dateTime)
+        let epochDate = Date(timeIntervalSince1970: epochTime)
+        let calendar = Calendar.current
+        let epochHour = calendar.component(.hour, from: epochDate)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd MMM YY"
+        let local = formatter.string(from: epochDate)
+        if epochHour > 12 {
+            return local + " at " + String(epochHour-12) + " PM"
+        }
+        return local + " at " + String(epochHour) + " AM"
+    }
 }
 
 // MARK:- Double to String

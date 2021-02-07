@@ -8,11 +8,13 @@
 import UIKit
 
 class WeatherCVCell: UICollectionViewCell {
+
     lazy var widgetVC: WeatherWidgetVC = {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "WeatherWidgetVC") as! WeatherWidgetVC
             return vc
         }()
+
     override func awakeFromNib() {
         super.awakeFromNib()
         widgetVC.view.frame = self.contentView.bounds

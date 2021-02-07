@@ -4,8 +4,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -61,16 +61,7 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hFJ-y5-lbh">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="1sz-92-xgy">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                    </collectionViewCell>
-                                </cells>
+                                <cells/>
                                 <connections>
                                     <outlet property="dataSource" destination="U89-Da-aix" id="Kd5-FG-QfQ"/>
                                     <outlet property="delegate" destination="U89-Da-aix" id="H2E-47-ZfL"/>
@@ -94,5 +85,78 @@
             </objects>
             <point key="canvasLocation" x="485.50724637681162" y="61.607142857142854"/>
         </scene>
+        <!--Weather DetailVC-->
+        <scene sceneID="6aG-hW-ylj">
+            <objects>
+                <viewController storyboardIdentifier="WeatherDetailVC" id="x0e-V2-d1D" customClass="WeatherDetailVC" customModule="WeatherInfo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eqb-Gg-ZKh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hRX-ac-4oy">
+                                <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Locations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="end-l3-wn4">
+                                        <rect key="frame" x="164" y="12.5" width="86" height="25.5"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="22"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wOk-0o-9BF">
+                                        <rect key="frame" x="0.0" y="49" width="414" height="1"/>
+                                        <color key="backgroundColor" name="tempColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="wfG-I3-cB8"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="12"/>
+                                        <color key="textColor" name="tempColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Ovp-si-tEQ"/>
+                                    <constraint firstItem="wOk-0o-9BF" firstAttribute="leading" secondItem="hRX-ac-4oy" secondAttribute="leading" id="dIT-nl-S4P"/>
+                                    <constraint firstAttribute="bottom" secondItem="wOk-0o-9BF" secondAttribute="bottom" id="dXl-ZO-mXE"/>
+                                    <constraint firstItem="end-l3-wn4" firstAttribute="centerX" secondItem="hRX-ac-4oy" secondAttribute="centerX" id="h1g-oO-Hxs"/>
+                                    <constraint firstItem="end-l3-wn4" firstAttribute="centerY" secondItem="hRX-ac-4oy" secondAttribute="centerY" id="yYb-HM-Qdf"/>
+                                    <constraint firstAttribute="trailing" secondItem="wOk-0o-9BF" secondAttribute="trailing" id="yYy-sx-uAW"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pKk-pI-1ri">
+                                <rect key="frame" x="0.0" y="94" width="414" height="768"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="x0e-V2-d1D" id="c77-us-PUq"/>
+                                    <outlet property="delegate" destination="x0e-V2-d1D" id="4mY-TR-3eC"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4me-gS-uQ3"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hRX-ac-4oy" firstAttribute="top" secondItem="4me-gS-uQ3" secondAttribute="top" id="CG0-3V-N81"/>
+                            <constraint firstItem="hRX-ac-4oy" firstAttribute="trailing" secondItem="4me-gS-uQ3" secondAttribute="trailing" id="DaS-DH-QCa"/>
+                            <constraint firstItem="pKk-pI-1ri" firstAttribute="bottom" secondItem="4me-gS-uQ3" secondAttribute="bottom" id="K9e-7R-pzb"/>
+                            <constraint firstItem="hRX-ac-4oy" firstAttribute="leading" secondItem="4me-gS-uQ3" secondAttribute="leading" id="VQc-RI-NOv"/>
+                            <constraint firstItem="pKk-pI-1ri" firstAttribute="trailing" secondItem="4me-gS-uQ3" secondAttribute="trailing" id="YCD-gg-sO4"/>
+                            <constraint firstItem="pKk-pI-1ri" firstAttribute="top" secondItem="hRX-ac-4oy" secondAttribute="bottom" id="ma3-wE-YOG"/>
+                            <constraint firstItem="pKk-pI-1ri" firstAttribute="leading" secondItem="4me-gS-uQ3" secondAttribute="leading" id="xXo-dX-zzD"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="headerLabel" destination="end-l3-wn4" id="AqI-zm-Ufc"/>
+                        <outlet property="weatherTableView" destination="pKk-pI-1ri" id="b6k-sY-qdd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LAa-ih-xZU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-780" y="62"/>
+        </scene>
     </scenes>
+    <resources>
+        <namedColor name="tempColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

@@ -58,10 +58,22 @@
                         </label>
                     </subviews>
                 </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="trQ-Bu-Opt">
+                    <rect key="frame" x="291" y="12" width="111" height="36"/>
+                    <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="20"/>
+                    <state key="normal" title="15 Days &gt;&gt;&gt;">
+                        <color key="titleColor" name="tempColor"/>
+                    </state>
+                    <connections>
+                        <action selector="actionAllDaysData:" destination="iN0-l3-epB" eventType="touchUpInside" id="CdH-mo-ica"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="trQ-Bu-Opt" secondAttribute="trailing" constant="12" id="20f-pK-QVt"/>
                 <constraint firstItem="NqD-lF-4Wd" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="FP0-ok-uge"/>
+                <constraint firstItem="trQ-Bu-Opt" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="12" id="Rgd-NN-z44"/>
                 <constraint firstItem="NqD-lF-4Wd" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="uPG-yZ-DgJ"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

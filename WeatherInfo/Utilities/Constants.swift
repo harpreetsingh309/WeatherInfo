@@ -21,5 +21,5 @@ struct AlertConstant {
 
 struct Errors {
     static let noInternet = "Your Internet connection appears to be offline."
-    static let serverError = "Internal Server error ocurred, try again after some time"
+    static let serverError = "Internal Server error occurred, try again after some time"
 }

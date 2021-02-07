@@ -8,7 +8,9 @@
 import UIKit
 
 class WeatherWidgetVC: UIViewController {
+    
     @IBOutlet weak var weatherTableView: UITableView!
+
     private let cellID = "WeatherTableViewCell"
     private let headerID = "WeatherHeaderView"
     var modelWeather: [WeatherViewModel]?

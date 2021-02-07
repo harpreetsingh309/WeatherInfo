@@ -10,6 +10,7 @@ import UIKit
 class WeatherListVC: UIViewController {
 
     @IBOutlet weak var weatherCollectionView: UICollectionView!
+
     private var arrayLocations: [[WeatherViewModel]] = []
     private let headerId = "WeatherCVHeaderView"
     private let cellId = "WeatherCVCell"
@@ -23,9 +24,10 @@ class WeatherListVC: UIViewController {
     }
     
     // MARK:- Register cell/nib
-    func setupUI() {
+    private func setupUI() {
         var nib = UINib(nibName: cellId, bundle: nil)
         weatherCollectionView.register(nib, forCellWithReuseIdentifier: cellId)
+        weatherCollectionView.automaticallyAdjustsScrollIndicatorInsets = true
         nib = UINib(nibName: headerId, bundle: nil)
         weatherCollectionView.register(nib, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
     }
@@ -72,8 +74,8 @@ extension WeatherListVC: UICollectionViewDataSource, UICollectionViewDelegateFlo
 
     /// Collection Cell Size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = weatherCollectionView.frame.width
-        return CGSize(width: width, height: width * 1.8)
+        let frame = weatherCollectionView.frame
+        return CGSize(width: frame.width, height: frame.height)
     }
 
     /// Cell For Row at

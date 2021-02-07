@@ -15,9 +15,13 @@ class WeatherTableViewCell: UITableViewCell {
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var conditionImageView: UIImageView!
 
-    func updateCell(with newModel: WeatherViewModel) {
+    func updateCell(with newModel: WeatherViewModel, isDetail: Bool = false) {
         selectionStyle = .none
-        dateTimeLabel.text = newModel.dateTimeString
+        if isDetail {
+            dateTimeLabel.text = newModel.dateString
+        } else {
+            dateTimeLabel.text = newModel.dateTimeString
+        }
         descriptionLabel.text = newModel.desc.uppercased()
         temperatureLabel.text = newModel.temperatureString + Constants.degreeCelcius
         conditionImageView.image = UIImage(systemName: newModel.conditionName)

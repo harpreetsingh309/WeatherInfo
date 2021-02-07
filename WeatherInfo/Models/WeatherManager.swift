@@ -34,28 +34,14 @@ class WeatherManager {
     }
 
     // MARK:- Get data from JSON file
-    private func getJsonFileData(fileName: String) -> [WeatherViewModel]? {
+    func getJsonFileData(fileName: String) -> [WeatherViewModel]? {
         if let path = Bundle.main.path(forResource: fileName, ofType: "json") {
             let decoder = JSONDecoder()
             do {
-                  let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
                 let decodedData = try decoder.decode(WeatherListDataModel.self, from: data)
-                var list: [WeatherViewModel] = []
-                for model in decodedData.list {
-                    let id = model.weather[0].id
-                    let temp = model.main.temp
-                    let name = decodedData.city.name
-                    let desc = model.weather[0].description
-                    let min = model.main.temp_min
-                    let dt = model.dt
-                    let max = model.main.temp_max
-                    let humidity = model.main.humidity
-                    let weather = WeatherViewModel(conditionId: id, dateTime: dt, cityName: name, temperature: temp, humidity: humidity , temp_min: min, temp_max: max, desc: desc)
-                    list.append(weather)
-                }
-                return list
+                return getViewModel(data: decodedData)
             } catch {
-                   // handle error
                 print("Unable to load data")
               }
         }
@@ -66,7 +52,12 @@ class WeatherManager {
     func fetchBulkWeather(cityID: cities) {
         showActivityIndicator()
         let urlString = "\(Constants.cityWeatherBaseURL)&id=\(cityID.rawValue)&appid=\(getAPIKey)"
-        performRequest(with: urlString)
+        if Reachability.isConnectedToNetwork(){
+            performRequest(with: urlString)
+        } else {
+            hideActivityIndicator()
+            delegate?.didFailWithError(error: Errors.noInternet)
+        }
     }
     
     // MARK:- URLSession Task
@@ -94,34 +85,38 @@ class WeatherManager {
         let decoder = JSONDecoder()
         do {
             let decodedData = try decoder.decode(WeatherListDataModel.self, from: weatherData)
-            var list: [WeatherViewModel] = []
-            var model = [[WeatherViewModel]]()
-            for model in decodedData.list {
-                let id = model.weather[0].id
-                let temp = model.main.temp
-                let name = decodedData.city.name
-                let desc = model.weather[0].description
-                let min = model.main.temp_min
-                let dt = model.dt
-                let max = model.main.temp_max
-                let humidity = model.main.humidity
-                let weather = WeatherViewModel(conditionId: id, dateTime: dt, cityName: name, temperature: temp, humidity: humidity , temp_min: min, temp_max: max, desc: desc)
-                list.append(weather)
-            }
-            model.append(list)
+            var viewModel = [[WeatherViewModel]]()
+            viewModel.append(getViewModel(data: decodedData))
             if let hobart = getJsonFileData(fileName: "hobart") {
-                model.append(hobart)
+                viewModel.append(hobart)
             }
             if let perth = getJsonFileData(fileName: "perth") {
-                model.append(perth)
+                viewModel.append(perth)
             }
-            return model
+            return viewModel
             
         } catch {
             hideActivityIndicator()
             delegate?.didFailWithError(error: Errors.serverError)
             return nil
         }
+    }
+    
+    private func getViewModel(data: WeatherListDataModel) -> [WeatherViewModel] {
+        var list: [WeatherViewModel] = []
+        for model in data.list {
+            let id = model.weather[0].id
+            let temp = model.main.temp
+            let name = data.city.name
+            let desc = model.weather[0].description
+            let min = model.main.temp_min
+            let dt = model.dt
+            let max = model.main.temp_max
+            let humidity = model.main.humidity
+            let weather = WeatherViewModel(conditionId: id, dateTime: dt, cityName: name, temperature: temp, humidity: humidity , temp_min: min, temp_max: max, desc: desc)
+            list.append(weather)
+        }
+        return list
     }
     
     // MARK:-  Activity Indicator
